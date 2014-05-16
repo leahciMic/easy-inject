@@ -18,23 +18,30 @@ desired dependencies.
 ```js
 var inject = require('easy-inject');
 
-var myFunc = function(foo, bar) {
-    console.log(foo, bar); // outputs "Hello world!"
-};
-
-inject(myFunc, {
-    foo: 'Hello ',
-    bar: 'world!'
-});
+inject(
+    function(foo, bar) {
+        console.log(foo, bar); // outputs "Hello world!"
+    },
+    {
+        foo: 'Hello ',
+        bar: 'world!'
+    }
+);
 ```
 
 Or, you may supply an explicit array of dependencies, and they'll be passed to the function in the
  same order as specified.
 
  ```js
-var myFunc = ['foo', 'bar', function(a, b) {
-    console.log(a, b); // outputs "Hello world!"
-}];
+inject(
+    ['foo', 'bar', function(a, b) {
+        console.log(a, b); // outputs "Hello world!"
+    }],
+    {
+        foo: 'Hello ',
+        bar: 'world!'
+    }
+);
 ```
 
 ## API
