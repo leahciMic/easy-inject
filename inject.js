@@ -51,7 +51,7 @@ function inject(fn, injectables) {
 
   for (i = 0; i < l; i++) {
     if (typeof injectables[wants[i]] === 'undefined') {
-      throw new Error('Could not find ' + injectables[wants[i]]);
+      throw new Error('Could not find ' + wants[i]);
     }
     injectVars[injectVars.length] = injectables[wants[i]];
   }
