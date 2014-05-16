@@ -32,13 +32,11 @@ function annotate(fn) {
   } else if (Array.isArray(fn)) {
     last = fn.length - 1;
     if (typeof fn[last] !== 'function') {
-      throw new Error('DI: last array element was not a function');
+      throw new Error('function missing from array');
     }
     _dependencies = fn.slice(0, last);
   } else {
-    if (typeof fn !== 'function') {
-      throw new Error('Not a function');
-    }
+    throw new Error('annotation failed parsing input');
   }
   fn._dependencies = _dependencies;
   return _dependencies;
@@ -63,7 +61,7 @@ function inject(fn, injectables) {
   }
 
   if (typeof fn !== 'function') {
-    throw new Error('You asked me to do something stupid');
+    throw new Error('inject failed to find a function');
   }
 
   fn.apply(fn, injectVars);
