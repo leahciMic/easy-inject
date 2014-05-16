@@ -64,7 +64,7 @@ function inject(fn, injectables) {
     throw new Error('inject failed to find a function');
   }
 
-  fn.apply(fn, injectVars);
+  return fn.apply(fn, injectVars);
 };
 
 module.exports = inject;

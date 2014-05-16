@@ -1,6 +1,6 @@
 {
   "name": "easy-inject",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A very simple dependency injection library, inspired and mostly borrowed from Angular.",
   "main": "inject.js",
   "scripts": {
